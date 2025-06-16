@@ -1,0 +1,154 @@
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entendedo Vetores</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+
+    }
+
+    h1 {
+        text-align: left;
+    }
+
+    .boxer {
+        box-sizing: border-box;
+        box-shadow: 2px 2px 0;
+        border: solid 1px black;
+        padding: 20px;
+    }
+
+    body {
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+        text-align: center;
+
+    }
+
+    input {
+        border: solid 1px #40c060;
+        border-radius: 5px;
+        padding: 10px;
+        width: 50%;
+        outline: none;
+        transition: all 0.3s ease;
+        margin-bottom: 10px;
+        box-shadow: 0 1px 1px;
+    }
+
+    input:focus {
+        border-color: #030303;
+        box-shadow: 0 0 8px #40c060;
+    }
+
+    button {
+        border: solid 2px black;
+        width: 50%;
+        border-radius: 3px;
+        padding: 10px 20px;
+        margin: 5px 0;
+        margin-top: 15px;
+        cursor: pointer;
+        background-color: rgb(78, 220, 78);
+        color: black;
+        font-weight: bold;
+        transition: 0.1s transform 0.2ms;
+
+    }
+
+    button:hover {
+        background-color: #26c6da;
+        transform: scale(1.2);
+    }
+
+    #lista {
+        margin-top: 20px;
+        padding: 20px;
+        background: rgb(148, 230, 163);
+        border-radius: 5px;
+        min-width: 500px;
+    }
+</style>
+
+<body>
+    <h1>
+        Entendendo Vetores
+    </h1>
+    <div class="boxer">
+        <input type="text" id="produto" placeholder="Ex:mouse"><br>
+        <input type="number" id="posicao" value="0">
+
+        <button onclick="addInicio()">Add ao Inicio</button>
+        <button onclick="addFinal()">Add ao Final</button>
+        <button onclick="removerPrimeiro()">Remover Primeiro Elemento</button>
+        <button onclick="removerUltimo()">Remover Último Elemento</button>
+        <button onclick="removerPosiEspec()">Remover em Posição Específica</button>
+    </div>
+
+    <div id="lista"></div>
+
+    <script>
+
+        const listaProduto = [];
+
+        function addInicio() {
+            const produto = document.getElementById('produto');
+            listaProduto.unshift(produto.value);
+
+            const divLista = document.getElementById('lista');
+            divLista.innerHTML = listaProduto.toString();
+            produto.value = ""
+
+        }
+
+        function addFinal() {
+            const produto = document.getElementById('produto');
+            listaProduto.push(produto.value);
+
+            const divLista = document.getElementById('lista');
+            divLista.innerHTML = listaProduto.toString();
+            produto.value = ""
+        }
+
+        function removerPrimeiro() {
+            const produto = document.getElementById('produto');
+            listaProduto.shift(produto.value);
+
+            const divLista = document.getElementById('lista');
+            divLista.innerHTML = listaProduto.toString();
+            produto.value = ""
+        }
+
+        function removerUltimo() {
+            const produto = document.getElementById('produto')
+            listaProduto.pop(produto.value)
+
+            const divLista = document.getElementById('lista');
+            divLista.innerHTML = listaProduto.toString();
+            produto.value = ""
+        }
+
+
+        function removerPosiEspec() {
+            const produto = document.getElementById('produto');
+            listaProduto.splice(posicao, 1);
+
+            const divLista = document.getElementById('lista');
+            divLista.innerHTML = listaProduto.toString();
+
+        }
+
+    </script>
+</body>
+
+</html>

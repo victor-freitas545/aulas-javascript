@@ -1,0 +1,67 @@
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Entendendo Vetores/Array</h1>
+
+    <script>
+        //declarar um vetor novo
+        const listaAlunos = ['Guilherme', 'Harry', 'Bob'];
+
+        //imprimindo o tipo de constante
+        console.log(typeof listaAlunos);
+
+        //imprimindo o tamanho da lisa
+        console.log(listaAlunos.length)
+
+        //imprimindo a lista em si
+        console.log(listaAlunos)
+
+        //imprimindo a lista em forma de texto
+        console.log(listaAlunos.toString())
+
+        //remover o último elemento do vetor
+        listaAlunos.pop();
+        console.log(listaAlunos.toString())
+
+
+        //insere o primeiro elemento na primeira posição da lista
+        listaAlunos.unshift('Bob')
+        console.log(listaAlunos.toString())
+
+        //inserir o elemento na última posição da lista
+        listaAlunos.push('Maria');
+        console.log(listaAlunos.toString());
+
+        //remover o primeiro elemento da lista
+        listaAlunos.shift();
+        console.log(listaAlunos.toString());
+
+        //remover em uma posição específica
+        listaAlunos.splice(1,1);
+        console.log(listaAlunos.toString())
+
+        //inserir elemento a partir de uma posição específica
+        listaAlunos.splice(1,0, 'Neco', 'Jessica', 'Paulo');
+        console.log(listaAlunos.toString())
+
+        //editar um elemento em uma posição específica
+        listaAlunos.splice(2,1,'Bianca');
+        console.log(listaAlunos.toString());
+
+        //capturar o indice de um elemento da lista
+        const indiceMaria = listaAlunos.indexOf('Maria');
+        console.log(listaAlunos.toString());
+        console.log("Indíce do elemento 'Maria' - " + indiceMaria);
+        
+        
+
+    </script>
+</body>
+
+</html>

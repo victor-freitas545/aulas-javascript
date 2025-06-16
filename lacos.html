@@ -1,0 +1,75 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Trabalhando com laços otimizados</h1>
+
+    <h2>Lista For Tradicional</h2>
+    <div id="listaFor"></div>
+
+    <h2>Lista ForEach</h2>
+    <div id="listaForEach"></div>
+
+    <h2>Lista ForEach com Função pré-definida</h2>
+    <div id="listaFuncao"></div>
+
+    <h2>Lista de Positivos</h2>
+    <div id="listaPositivo"></div>
+
+    <script>
+        const listaProdutos = ['Brigadeiro', 'Coxinha', 'Esfirra', 'Pastel', 'Bolo de Chocolate', 'Sonho'];
+
+        const divListaFor = document.getElementById('listaFor')
+
+        //percorrendo a lista atarvés de um FOR tradicional
+        for (let contador = 0; contador < listaProdutos.length; contador++) {
+            divListaFor.innerHTML += `<p>${listaProdutos[contador]}</p>`;
+
+        }
+
+        console.log(listaProdutos);
+
+        const divListaForEach = document.getElementById('listaForEach')
+
+        //percorrendo a lista através do FOR...EACH
+        listaProdutos.forEach(function (produto) {
+
+
+            divListaForEach.innerHTML += `<p>${produto}</p>`;
+        });
+        console.log(listaProdutos);
+
+        //forma resumida de estruturar um ForEach, usando o conceito Arrow Function
+        listaProdutos.forEach(produto => {
+            divListaForEach.innerHTML += `<p>${produto}</p>`;
+        });
+
+        //imprimindo a lista de produtos através de um ForEach atrelado a uma função
+        //previamente existente
+        const divListaFuncao = document.getElementById('listaFuncao')
+        function imprimirLista(item) {
+            divListaFuncao.innerHTML += `<p>${item}</p>`
+        }
+
+        listaProdutos.forEach(imprimirLista);
+
+        const listaNumeros = [8, -66, 1, -9, 589, -22, 712, 45];
+        const listaPositivo = document.getElementById('listaPositivo');
+
+        //usando o ForEach para imprimir somente os números positivos
+        listaNumeros.forEach(numero => {
+            if (numero >= 0) {
+                divlistaPositivo.innerHTML += '<p>'+ numero +'</p>';
+            }
+        });
+
+
+    </script>
+</body>
+
+</html>

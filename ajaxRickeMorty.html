@@ -1,0 +1,56 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button onclick="listarTodos()">Listar todos os registros</button>
+    <button onclick="listarPeloId()">Listar um único registro</button>
+    <button onclick="salvar()">Salvar registro</button>
+    <button onclick="alterar()">Alterar registro</button>
+    <button onclick="deletar()">Deletar registro</button>
+
+    <div id="resultado"></div>
+
+    <script src="scripts/ajaxScript.js">
+        function listarTodos() {
+    var xhttp = new XMLHttpRequest();
+
+    // definindo o tipo de retorno do meu objeto xhttp
+    xhttp.responseType = "json";
+
+    xhttp.onreadystatechange = function () {
+
+        // status da requisição já retornada para o browser
+        if (this.readyState == 4) {
+            console.log(xhttp);
+
+            const listaPersonagens = xhttp.response.results;
+            const divResultado = document.getElementById('resultado');
+
+            listaPersonagens.forEach(personagem => {
+                divResultado.innerHTML += '<p>' + personagem.name + '</p>';
+            });
+
+            // if(this.status == 200){
+            //     alert("Registros encontrados com sucesso!");
+
+            // }else{
+            //     alert("Algo deu errado.");
+            // }
+        }  
+        
+    };
+
+    xhttp.open("GET", "https://rickandmortyapi.com/api/character");
+    xhttp.send();
+}
+
+
+
+    </script>   
+</body>
+</html>
